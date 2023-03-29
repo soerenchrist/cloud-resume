@@ -1,0 +1,92 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TimeLineElement from "../components/cv/TimeLine.astro";
+---
+
+<BaseLayout title = "Resume">
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Profile</div>
+  </div>
+
+  <div class="mb-10 text-justify">
+    Software Developer with 5+ years of experience using various different programming languages and frameworks. My main
+    technology stack is built around .NET and C# and my focus is on backend and desktop development. Other languages to
+    note are ABAP, Java and TypeScript/JavaScript.
+    I am always curious and eager to learn new stuff and I mostly make my learning journey public on GitHub. 
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Education</div>
+  </div>
+
+  <div class="time-line-container grid gap-4 mb-10">
+    <TimeLineElement
+      title="Bachelor of Science in Applied Computer Science"
+      subtitle="2014 to 2017 at Baden-Wuerttemberg Cooperative State University (DHBW) in Mosbach"
+    />
+    <TimeLineElement
+      title="General university entrance qualification"
+      subtitle="2011 to 2014 at the technical school in Mosbach, Focus on information technology"
+    />
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Experience</div>
+  </div>
+
+  <div class="time-line-container mb-10">
+    <TimeLineElement
+      title="IT Consultant"
+      subtitle="From 2022 at BCM Solutions, Stuttgart, Germany"
+      desc="Software Development and consulting for different companies with the core technologies .NET, Java and ABAP"
+    />
+    <TimeLineElement
+      title="Software Developer"
+      subtitle="From 2017 to 2022 at AZO GmbH + Co.KG, Osterburken, Germany"
+      desc="Development of different systems in the SAP ecosystem, including an e-commerce system based on SAP Commerce Cloud and various mobile apps for shopfloor integration"
+    />
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Certifications</div>
+  </div>
+
+  <ul class="list-disc mx-6 mb-10 grid gap-2">
+    <li>
+      <a href="https://learn.microsoft.com/en-us/certifications/azure-fundamentals" target="_blank">Azure Fundamentals (AZ900)</a>
+    </li>
+    <li>
+      <a href="https://learn.microsoft.com/en-us/certifications/azure-developer/" target="_blank"> Azure Developer Associate (AZ204) (currently pending)</a>
+    </li>
+    <li>
+      <a href="https://learn.microsoft.com/en-us/certifications/azure-developer/" target="_blank"> Azure Developer Associate (AZ204) (currently pending)</a>
+    </li>
+  </ul>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Skills</div>
+  </div>
+
+  <ul class="list-disc md:columns-5 columns-2 mx-6">
+    <li>German (Native)</li>
+    <li>English (C2)</li>
+    <li>C#</li>
+    <li>ABAP / ABAP OO</li>
+    <li>Java</li>
+    <li>JavaScript</li>
+    <li>TypeScript</li>
+    <li>Postgres SQL</li>
+    <li>MySQL</li>
+    <li>CSS</li>
+    <li>HTML</li>
+    <li>Vue</li>
+    <li>React</li>
+    <li>NextJS</li>
+    <li>Astro</li>
+    <li>Tailwind</li>
+    <li>Git</li>
+    <li>Jira</li>
+    <li>Jenkins</li>
+    <li>Azure</li>
+  </ul>
+</BaseLayout>

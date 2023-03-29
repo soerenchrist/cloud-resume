@@ -1,0 +1,64 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import SideBar from "../components/SideBar.astro";
+
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+
+const {
+  image,
+  title = SITE_TITLE,
+  description = SITE_DESCRIPTION,
+  includeSidebar = true,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" data-theme="lofi">
+  <head>
+    <BaseHead title={title} description={description} image={image} />
+    <script is:inline>
+      if (localStorage.getItem("theme") === null) {
+        document.documentElement.setAttribute("data-theme", "light");
+      } else {
+        document.documentElement.setAttribute(
+          "data-theme",
+          localStorage.getItem("theme")
+        );
+      }
+    </script></head
+  >
+  <script>
+    import { themeChange } from "theme-change";
+    themeChange();
+  </script>
+  <script>
+    import { getAndUpdateVisitorCount } from "../services/visitorCount";
+    const count = sessionStorage.getItem("count");
+    const element = document.getElementById("visitor-count");
+    if (count) {
+      element!.innerHTML = count;
+    } else {
+      const amount = await getAndUpdateVisitorCount();
+      element!.innerHTML = amount.toString();
+      sessionStorage.setItem("count", amount.toString());
+    }
+  </script>
+
+  <body>
+    <div class="bg-base-100 drawer drawer-mobile">
+      <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+      <div class="drawer-content flex flex-col bg-base-100">
+        <Header title={SITE_TITLE} />
+        <div class="md:flex md:justify-center">
+          <main class="p-6 pt-10 max-w-[900px]">
+            <slot />
+          </main>
+        </div>
+        <Footer />
+      </div>
+      {includeSidebar && <SideBar />}
+    </div>
+  </body>
+</html>

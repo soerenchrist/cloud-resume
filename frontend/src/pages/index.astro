@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+import { getCollection } from "astro:content";
+---
+
+<BaseLayout>
+    <div class="pb-12 mt-5">
+      <div class="text-xl py-1">Hey there 👋</div>
+      <div class="text-5xl font-bold">I'm Sören Christ</div>
+      <div class="text-3xl py-3 font-bold">Software Developer</div>
+      <div class="py-2">
+        <text class="text-lg">
+            I am a Software Developer from Germany, interested in a lot of different technologies. Currently very curious about cloud development.
+
+          </text
+        >
+      </div>
+      <div class="mt-8">
+        <a class="btn" href="mailto://hallo@soerenchrist.de" target="_blank"> Let's connect!</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
+    </div>
+
+    <HorizontalCard
+        title="BLE Server"
+        img="/bleserver.png"
+        desc="This application is a desktop application for windows to simulate different Bluetooth Low Energy Devices. It is built with .NET Maui."
+        url="https://bleserver.soerenchrist.de"
+        badge=".NET"
+    />
+    <div class="divider my-0"></div>
+    <HorizontalCard
+        title="Tourgether"
+        img="/tourgether.svg"
+        desc="Tourgether is a social media application for hikers. It allows to share hiking routes and keep track of the hiked mountains. It uses Next.JS and TypeScript."
+        url="https://tourgether.eu"
+        badge="Typescript"
+    />
+</BaseLayout>
