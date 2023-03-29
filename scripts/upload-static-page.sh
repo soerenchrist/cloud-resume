@@ -1,11 +1,13 @@
 #!/bin/bash
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-DIST_DIR="$SCRIPT_DIR/../dist"
+DIST_DIR="$SCRIPT_DIR/../frontend/dist"
+NPM_DIR="$SCRIPT_DIR/../frontend/"
 
 STORAGE_ACCOUNT="resumefrontenddevstorage"
-RESOURCE_GROUP="resumefrontend-dev-rg"
+RESOURCE_GROUP="resume-frontend-dev-rg"
 
 echo 'Building project'
+cd $NPM_DIR 
 npm run build
 
 echo 'Uploading static page'
