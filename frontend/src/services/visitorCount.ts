@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { createZodFetcher } from "zod-fetch";
 
-const functionUrl = "https://resumebackend-dev-function-app.azurewebsites.net/api/GetAndUpdateVisitorCount";
+const functionUrl = "https://resume-backend-dev-function-app.azurewebsites.net/api/GetAndUpdateVisitorCount";
 const schema = z.object({
     count: z.number(),
 });
