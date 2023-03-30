@@ -13,6 +13,8 @@ echo "Deploying to environment $ENV"
 
 echo 'Building project'
 cd $NPM_DIR 
+
+npm install
 npm run build
 
 echo 'Uploading static page'
