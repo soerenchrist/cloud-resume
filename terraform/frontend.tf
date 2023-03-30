@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "frontendrg" {
-  name     = "${var.project}-${var.environment}-frontend-rg"
+  name     = "${var.project}-frontend-${var.environment}-rg"
   location = var.location
 }
 
