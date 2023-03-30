@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "frontendrg" {
-  name     = "${var.project}-${var.environment}-frontend-rg"
+  name     = "${var.project}-frontend-${var.environment}-rg"
   location = var.location
 }
 
@@ -13,11 +13,6 @@ resource "azurerm_storage_account" "webstorage" {
     index_document     = "index.html"
     error_404_document = "404.html"
   }
-}
-
-resource "azurerm_storage_container" "webcontainer" {
-  name                 = "$web"
-  storage_account_name = azurerm_storage_account.webstorage.name
 }
 
 resource "azurerm_cdn_profile" "cdnprofile" {

@@ -51,6 +51,8 @@ on:
 
 env:
   TF_WORKSPACE: resume-prod
+  DOTNET_VERSION: 6.0.x
+
 
 permissions:
   contents: read
@@ -98,3 +100,37 @@ jobs:
       if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
       run: terraform apply -auto-approve -input=false
       working-directory: ./terraform
+  update:
+    name: 'Update services'
+    if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    needs: terraform
+    environment: production
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    
+    - name: Setup Dotnet
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
+
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Azure Login
+      uses: Azure/login@v1
+      with:
+        creds: '{"clientId":"${{ secrets.CLIENT_ID }}","clientSecret":"${{ secrets.CLIENT_SECRET }}","subscriptionId":"${{ secrets.SUBSCRIPTION_ID }}","tenantId":"${{ secrets.TENANT_ID }}"}'
+    
+    - name: Install function tools
+      run: npm i -g azure-functions-core-tools@4 --unsafe-perm true
+
+    - name: Publish Azure function
+      run: ./scripts/publish-function.sh prod
+
+    - name: Upload static site
+      run: ./scripts/upload-static-page prod
