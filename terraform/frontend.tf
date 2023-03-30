@@ -15,11 +15,6 @@ resource "azurerm_storage_account" "webstorage" {
   }
 }
 
-resource "azurerm_storage_container" "webcontainer" {
-  name                 = "$web"
-  storage_account_name = azurerm_storage_account.webstorage.name
-}
-
 resource "azurerm_cdn_profile" "cdnprofile" {
   name                = "${var.project}-frontend-${var.environment}-cdn-profile"
   location            = "Global"
