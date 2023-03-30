@@ -2,9 +2,14 @@
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 DIST_DIR="$SCRIPT_DIR/../frontend/dist"
 NPM_DIR="$SCRIPT_DIR/../frontend/"
+ENV=$1
 
-STORAGE_ACCOUNT="resumefrontenddevstorage"
-RESOURCE_GROUP="resume-frontend-dev-rg"
+if [ -z $ENV ]; then ENV="dev"; fi
+
+STORAGE_ACCOUNT="resumefrontend${ENV}sa"
+RESOURCE_GROUP="resume-frontend-$ENV-rg"
+
+echo "Deploying to environment $ENV"
 
 echo 'Building project'
 cd $NPM_DIR 

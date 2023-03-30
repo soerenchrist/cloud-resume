@@ -4,7 +4,7 @@ resource "azurerm_resource_group" "frontendrg" {
 }
 
 resource "azurerm_storage_account" "webstorage" {
-  name                     = "${var.project}frontend${var.environment}storage"
+  name                     = "${var.project}frontend${var.environment}sa"
   resource_group_name      = azurerm_resource_group.frontendrg.name
   location                 = var.location
   account_tier             = "Standard"
@@ -25,7 +25,7 @@ resource "azurerm_cdn_profile" "cdnprofile" {
 resource "azurerm_cdn_endpoint" "cdnendpoint" {
   name                = "${var.project}-frontend-${var.environment}-cdn"
   profile_name        = azurerm_cdn_profile.cdnprofile.name
-  location            = "Global" 
+  location            = "Global"
   resource_group_name = azurerm_resource_group.frontendrg.name
 
   origin {
