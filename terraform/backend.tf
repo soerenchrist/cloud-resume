@@ -76,7 +76,7 @@ resource "azurerm_windows_function_app" "functionapp" {
         "https://*.github.dev",
         "https://*.azureedge.net",
         "https://*.z6.web.core.windows.net",
-        "https://*.soerenchrist.de",
+        "https://www.soerenchrist.de",
         "https://soerenchrist.de"
       ]
     }
