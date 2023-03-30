@@ -90,4 +90,4 @@ jobs:
       run: ./scripts/publish-function.sh prod
 
     - name: Upload static site
-      run: ./scripts/upload-static-page prod
+      run: ./scripts/upload-static-page.sh prod
