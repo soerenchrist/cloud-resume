@@ -17,6 +17,14 @@ import HorizontalCard from "../components/HorizontalCard.astro";
     />
     <div class="divider my-0"></div>
     <HorizontalCard
+        title="This Resume Page"
+        img="/logo_dark.svg"
+        desc="This resume is built with Astro on the frontend and uses a serverless backend hosted on Azure and provisioned with Terraform"
+        url="https://github.com/soerenchrist/cloud-resume"
+        badge="Azure"
+    />
+    <div class="divider my-0"></div>
+    <HorizontalCard
         title="Tourgether"
         img="/tourgether.svg"
         desc="Tourgether is a social media application for hikers. It allows to share hiking routes and keep track of the hiked mountains. It uses Next.JS and TypeScript."
@@ -31,7 +39,30 @@ import HorizontalCard from "../components/HorizontalCard.astro";
         url="https://github.com/soerenchrist/pixelizer"
         badge=".NET"
     />
-    <div class="More"></div>
+    <div class="divider my-0"></div>
+    <HorizontalCard
+        title="GeoHero"
+        img="/geohero.svg"
+        desc="GeoHero is a geography based game built with NextJS, DynamoDB and S3"
+        url="https://github.com/soerenchrist/geohero"
+        badge="TypeScript"
+    />
+    <div class="divider my-0"></div>
+    <HorizontalCard
+        title="Hanoi - Speed Run"
+        img="/hanoi.png"
+        url="https://github.com/soerenchrist/hanoi"
+        desc="This is an android app built with Xamarin.Forms. It let's you play the classic game of Hanoi with a focus on speed"
+        badge=".NET"
+    />
+    <div class="divider my-0"></div>
+    <HorizontalCard
+        title="Club Management System"
+        img="/svk.svg"
+        desc="I developed a finance and members management system for my local football club using ASP.NET Core on the Backend and Blazor on the frontend"
+        badge=".NET"
+    />
+    <div class="divider my-0"></div>
     <HorizontalCard
         title="More"
         img="/github.svg"
