@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Azure.Data.Tables;
 using Azure;
+using Backend.Models;
 
 namespace VisitorCountFunction
 {
@@ -19,34 +20,25 @@ namespace VisitorCountFunction
         {
             try
             {
-                var visitorCount = tableClient.GetEntity<VisitorCount>("1", "1").Value;
+                var visitorCount = tableClient.GetEntity<InteractionCount>("1", "VisitCount").Value;
                 log.LogInformation($"Visitor count is {visitorCount.Count}");
                 visitorCount.Count++;
 
-                tableClient.UpdateEntity<VisitorCount>(visitorCount, ETag.All);
+                tableClient.UpdateEntity<InteractionCount>(visitorCount, ETag.All);
                 return new OkObjectResult(visitorCount);
             }
             catch (RequestFailedException)
             {
-                var visitorCount = new VisitorCount
+                var visitorCount = new InteractionCount
                 {
                     PartitionKey = "1",
-                    RowKey = "1",
+                    RowKey = "VisitCount",
                     Count = 1
                 };
 
                 tableClient.AddEntity(visitorCount);
                 return new OkObjectResult(visitorCount);
             }
-        }
-
-        public class VisitorCount : ITableEntity
-        {
-            public string PartitionKey { get; set; }
-            public string RowKey { get; set; }
-            public int Count { get; set; }
-            public ETag ETag { get; set; }
-            public DateTimeOffset? Timestamp { get; set; }
         }
     }
 }
