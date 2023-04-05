@@ -18,18 +18,15 @@ namespace backend
         public static IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req,
             [Table("Visitors", Connection = "CosmosDbConnection")] TableClient tableClient,
-            [Blob("data/soeren_christ_resume.pdf", FileAccess.Read, Connection = "StorageAccountBlobConnection")] BlobClient blobClient,
+            [Blob("data/soeren_christ_resume.pdf", FileAccess.Read, Connection = "StorageAccountBlobConnection")] Stream blob,
             ILogger log)
         {
             UpdateDownloadCounter(tableClient);
 
-/*
             var memoryStream = new MemoryStream();
             blob.CopyTo(memoryStream);
             memoryStream.Position = 0;
             return new FileStreamResult(memoryStream, "application/pdf");
-            */
-            return new OkObjectResult("Works");
         }
 
         private static void UpdateDownloadCounter(TableClient tableClient)
@@ -43,7 +40,7 @@ namespace backend
             }
             catch (RequestFailedException)
             {
-                var visitorCount = new InteractionCount 
+                var visitorCount = new InteractionCount
                 {
                     PartitionKey = "1",
                     RowKey = "PdfDownloads",
