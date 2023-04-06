@@ -36,7 +36,7 @@ resource "azurerm_cosmosdb_table" "cosmosdbtable" {
 }
 
 resource "azurerm_storage_account" "functionstorage" {
-  name                     = "${var.project}backend${var.environment}storage"
+  name                     = "${var.project}backend${var.environment}sa"
   resource_group_name      = azurerm_resource_group.backendrg.name
   location                 = azurerm_resource_group.backendrg.location
   account_tier             = "Standard"
@@ -84,6 +84,7 @@ resource "azurerm_windows_function_app" "functionapp" {
 
   app_settings = {
     CosmosDbConnection               = "DefaultEndpointsProtocol=https;AccountName=${azurerm_cosmosdb_account.cosmosdb.name};AccountKey=${azurerm_cosmosdb_account.cosmosdb.primary_key};TableEndpoint=https://${azurerm_cosmosdb_account.cosmosdb.name}.table.cosmos.azure.com:443/;"
+    StorageAccountBlobConnection     = azurerm_storage_account.webstorage.primary_blob_connection_string
     "APPINSIGHTS_INSTRUMENTATIONKEY" = azurerm_application_insights.applicationinsights.instrumentation_key
   }
 }
