@@ -9,10 +9,10 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
   </div>
 
   <div class="mb-10 text-justify">
-    Software Developer with 5+ years of experience using various different
+    Software Developer with 7+ years of experience using various different
     programming languages and frameworks. My main technology stack is built
-    around .NET and C# and my focus is on backend and desktop development. Other
-    languages to note are ABAP, Java and TypeScript/JavaScript. I am always
+    around .NET and TypeScript and my focus is on backend and desktop
+    development. Other languages to note are ABAP, Java and Go. I am always
     curious and eager to learn new stuff and I mostly make my learning journey
     public on GitHub.
   </div>
@@ -23,8 +23,23 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
 
   <div class="time-line-container mb-10">
     <TimeLineElement
+      title="Senior Software Engineer"
+      subtitle="Since 2024 at Sovanta AG, Heidelberg, Germany"
+      desc={[
+        "Software development for SAP BTP based on Typescript, CAP and HANA",
+        "Certified SAP Backend Developer and Data Engineer",
+      ]}
+    />
+    <TimeLineElement
+      title="Technical Consultant"
+      subtitle="From 2023 to 2024 at MPDV Mikrolab GmbH, Mosbach, Germany"
+      desc={[
+        "Consulting and help implementing the interface between HYDRA and SAP",
+      ]}
+    />
+    <TimeLineElement
       title="IT Consultant"
-      subtitle="From 2022 at BCM Solutions, Stuttgart, Germany"
+      subtitle="From 2022 to 2023 at BCM Solutions, Stuttgart, Germany"
       desc={[
         "Software Development in .NET, Java and ABAP",
         "Consulting Services for different Customers",
@@ -64,47 +79,52 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
   <ul class="list-disc mx-6 mb-10 grid gap-2">
     <li>
       <a
-        href="https://learn.microsoft.com/en-us/certifications/azure-fundamentals"
-        target="_blank">Azure Fundamentals (AZ-900)</a
+        href="https://learning.sap.com/certifications/sap-certified-associate-data-engineer-sap-hana"
+        target="_blank">SAP Certified Associate - Data Engineer - SAP HANA</a
       >
     </li>
-    <li>
-      <a
-        href="https://learn.microsoft.com/en-us/certifications/azure-developer/"
-        target="_blank"
-      >
-        Azure Developer Associate (AZ-204) (currently pending)</a
-      >
-    </li>
+    <a
+      href="https://learning.sap.com/certifications/sap-certified-associate-backend-developer-sap-cloud-programming-model"
+      target="_blank"
+      >SAP Certified Associate - Backend Developer - SAP Cloud Application
+      Programming Model</a
+    >
   </ul>
-
-  <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Skills</div>
-  </div>
-
-  <ul class="list-disc md:columns-5 columns-2 mx-6">
-    <li>German (Native)</li>
-    <li>English (C2)</li>
-    <li>C#</li>
-    <li>ASP.NET Core</li>
-    <li>ABAP / ABAP OO</li>
-    <li>Java</li>
-    <li>JavaScript</li>
-    <li>TypeScript</li>
-    <li>Postgres SQL</li>
-    <li>MySQL</li>
-    <li>CSS</li>
-    <li>HTML</li>
-    <li>Vue</li>
-    <li>React</li>
-    <li>NextJS</li>
-    <li>Astro</li>
-    <li>Tailwind</li>
-    <li>Git</li>
-    <li>Jira</li>
-    <li>Jenkins</li>
-    <li>Azure</li>
-    <li>AvaloniaUI</li>
-    <li>WPF</li>
-  </ul>
+  <li>
+    <a
+      href="https://learn.microsoft.com/en-us/certifications/azure-fundamentals"
+      target="_blank">Azure Fundamentals (AZ-900)</a
+    >
+  </li>
 </BaseLayout>
+
+<div class="mb-5">
+  <div class="text-3xl w-full font-bold">Skills</div>
+</div>
+
+<ul class="list-disc md:columns-5 columns-2 mx-6">
+  <li>German (Native)</li>
+  <li>English (C2)</li>
+  <li>C#</li>
+  <li>Go</li>
+  <li>ASP.NET Core</li>
+  <li>ABAP / ABAP OO</li>
+  <li>Java</li>
+  <li>JavaScript</li>
+  <li>TypeScript</li>
+  <li>Postgres SQL</li>
+  <li>MySQL</li>
+  <li>CSS</li>
+  <li>HTML</li>
+  <li>Vue</li>
+  <li>React</li>
+  <li>NextJS</li>
+  <li>Astro</li>
+  <li>Tailwind</li>
+  <li>Git</li>
+  <li>Jira</li>
+  <li>Jenkins</li>
+  <li>Azure</li>
+  <li>AvaloniaUI</li>
+  <li>WPF</li>
+</ul>
